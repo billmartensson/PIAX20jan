@@ -1,5 +1,7 @@
 package se.magictechnology.piax20jan
 
+import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,9 +29,10 @@ class ShoppingAdapter() : RecyclerView.Adapter<ShoppingViewHolder>() {
         holder.itemAmountTextview.text = shoppinglist[position].shopamount.toString() + " st"
 
         holder.itemRemoveButton.setOnClickListener {
-            // TODO: Krasch vid ta bort sista raden
-            notifyItemRemoved(position)
+            Log.i("PIAXDEBUG", "RADERA RAD " + position.toString())
             shoppinglist.removeAt(position)
+            //notifyItemRemoved(position)
+            notifyDataSetChanged()
         }
 
     }
